@@ -7,8 +7,8 @@ const SingleReview = ({ reviews, setReview }) => {
   const { review_id } = useParams();
 
   useEffect(() => {
+    setIsLoading(true);
     fetchReviewsById(review_id).then((data) => {
-      setIsLoading(true);
       setReview(data);
       setIsLoading(false);
     });
