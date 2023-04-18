@@ -15,3 +15,9 @@ export const fetchUsers = () => {
     return response.data.users;
   });
 };
+
+export const fetchReviewsById = (review_id) => {
+  return gamesAPI.get(`/reviews/${review_id}`).then((response) => {
+    return response.data.reviews;
+  });
+};

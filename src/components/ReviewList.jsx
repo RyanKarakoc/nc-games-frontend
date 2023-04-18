@@ -2,7 +2,14 @@ import { fetchReviews, fetchUsers } from "../api";
 import { useEffect } from "react";
 import IndividualReview from "./IndividualReview";
 
-const ReviewList = ({ reviews, setReviews, users, setUsers }) => {
+const ReviewList = ({
+  reviews,
+  setReviews,
+  users,
+  setUsers,
+  reviewId,
+  setReviewId,
+}) => {
   useEffect(() => {
     fetchReviews().then((data) => {
       setReviews(data);
@@ -24,6 +31,8 @@ const ReviewList = ({ reviews, setReviews, users, setUsers }) => {
             created_at={review.created_at}
             votes={review.votes}
             comment_count={review.comment_count}
+            reviewId={reviewId}
+            setReviewId={setReviewId}
           />
         );
       })}
