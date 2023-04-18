@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const IndividualReview = ({
+const ReviewCard = ({
   review_id,
   title,
   category,
@@ -15,12 +15,9 @@ const IndividualReview = ({
   setReviewId,
   reviewId,
 }) => {
-  const handleOnclick = () => {
-    setReviewId(review_id);
-  };
   return (
     <div className="review">
-      <Link to={`/review/${review_id}`} onClick={handleOnclick}>
+      <Link to={`/review/${review_id}`}>
         <img
           className="review-card-img"
           src={review_img_url}
@@ -39,4 +36,4 @@ const IndividualReview = ({
   );
 };
 
-export default IndividualReview;
+export default ReviewCard;

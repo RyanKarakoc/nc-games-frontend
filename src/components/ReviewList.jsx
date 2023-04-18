@@ -1,6 +1,6 @@
 import { fetchReviews, fetchUsers } from "../api";
 import { useEffect } from "react";
-import IndividualReview from "./IndividualReview";
+import ReviewCard from "./ReviewCard";
 
 const ReviewList = ({
   reviews,
@@ -20,7 +20,7 @@ const ReviewList = ({
     <div className="review-list">
       {reviews.map((review) => {
         return (
-          <IndividualReview
+          <ReviewCard
             review_id={review.review_id}
             title={review.title}
             category={review.category}
