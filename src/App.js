@@ -1,7 +1,9 @@
+import { Routes, Route, useParams } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import ReviewList from "./components/ReviewList";
 import { useState } from "react";
+import SingleReview from "./components/SingleReview";
 
 function App() {
   const [reviews, setReviews] = useState([]);
@@ -10,12 +12,40 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <ReviewList
-        reviews={reviews}
-        setReviews={setReviews}
-        users={users}
-        setUsers={setUsers}
-      />
+      <Routes>
+        <Route
+          path="/review/:review_id"
+          element={
+            <SingleReview
+              users={users}
+              reviews={reviews}
+              setReview={setReviews}
+            />
+          }
+        />
+        <Route
+          path="/reviews"
+          element={
+            <ReviewList
+              reviews={reviews}
+              setReviews={setReviews}
+              users={users}
+              setUsers={setUsers}
+            />
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <ReviewList
+              reviews={reviews}
+              setReviews={setReviews}
+              users={users}
+              setUsers={setUsers}
+            />
+          }
+        />
+      </Routes>
     </div>
   );
 }

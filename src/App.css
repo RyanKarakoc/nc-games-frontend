@@ -1,5 +1,10 @@
 body {
-  background-color: rgb(42, 36, 51);
+  background-color: rgb(35, 30, 43);
+}
+.loading {
+  text-align: center;
+  font-size: 50px;
+  color: white;
 }
 
 .header {
@@ -23,7 +28,7 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgb(255, 255, 255, 0.3);
+  background-color: rgb(255, 255, 255, 0.2);
 }
 
 .review-votes-comments {
@@ -35,6 +40,17 @@ body {
   bottom: 0;
   margin: 1px;
   background-color: rgb(0, 0, 0, 0.7);
+  color: white;
+}
+
+.review-list-votes {
+  color: white;
+  margin: 0px 10px;
+}
+
+.review-list-comments {
+  color: white;
+  margin: 0px 10px;
 }
 
 .review {
@@ -52,22 +68,98 @@ body {
   position: relative;
   word-wrap: break-word;
   color: rgb(14, 0, 51);
+  text-shadow: -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;
+
   margin: 0;
 }
 
 .review-owner {
   margin: 0;
   color: rgb(14, 0, 51);
+  text-shadow: -0.5px 0 #ffffff, 1px 0.5px 0 #ffffff, -0.5px 1px 0 #ffffff,
+    0.5px 0.5px 0 #ffffff;
 }
 
-.review-img {
+.review-card-img {
   position: relative;
   z-index: -1;
   height: 100%;
   width: 100%;
 }
 
-h5 {
+.review-page {
+  background-color: rgb(42, 36, 51);
+  height: 100%;
+  margin: 10px;
+  padding: 10px;
+}
+
+.review-title {
+  text-align: center;
   color: white;
-  margin: 0px 10px;
+  text-shadow: -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.review-body {
+  padding: 5px;
+  margin: 10px;
+  color: rgb(189, 189, 189);
+  background-color: rgb(30, 30, 43);
+  border: 2px solid rgb(255, 255, 255);
+  line-height: 1.8;
+  word-wrap: break-word;
+}
+
+.comment-area {
+  display: block;
+  height: 100px;
+  width: 90%;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border: 2px solid rgb(255, 255, 255);
+  background-color: rgb(30, 30, 43);
+  color: white;
+}
+
+.review-comments {
+  text-align: center;
+  border: 2px solid rgb(255, 255, 255);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  height: 700px;
+  word-wrap: break-word;
+  font-size: 60px;
+  background-color: rgb(30, 30, 43);
+  width: 90%;
+  color: rgb(189, 189, 189);
+}
+
+.review-votes-comments-count {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 97%;
+  color: white;
+}
+
+.review-votes-count {
+  color: rgb(189, 189, 189);
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 5px;
+  margin-right: 20px;
+  font-size: 15px;
+}
+
+.review-comments-count {
+  color: rgb(189, 189, 189);
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 20px;
+  font-size: 15px;
 }

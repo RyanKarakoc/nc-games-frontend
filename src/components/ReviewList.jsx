@@ -1,8 +1,15 @@
 import { fetchReviews, fetchUsers } from "../api";
 import { useEffect } from "react";
-import IndividualReview from "./IndividualReview";
+import ReviewCard from "./ReviewCard";
 
-const ReviewList = ({ reviews, setReviews, users, setUsers }) => {
+const ReviewList = ({
+  reviews,
+  setReviews,
+  users,
+  setUsers,
+  reviewId,
+  setReviewId,
+}) => {
   useEffect(() => {
     fetchReviews().then((data) => {
       setReviews(data);
@@ -13,7 +20,7 @@ const ReviewList = ({ reviews, setReviews, users, setUsers }) => {
     <div className="review-list">
       {reviews.map((review) => {
         return (
-          <IndividualReview
+          <ReviewCard
             review_id={review.review_id}
             title={review.title}
             category={review.category}
@@ -24,6 +31,8 @@ const ReviewList = ({ reviews, setReviews, users, setUsers }) => {
             created_at={review.created_at}
             votes={review.votes}
             comment_count={review.comment_count}
+            reviewId={reviewId}
+            setReviewId={setReviewId}
           />
         );
       })}
