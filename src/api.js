@@ -21,3 +21,9 @@ export const fetchReviewsById = (review_id) => {
     return response.data.reviews;
   });
 };
+
+export const fetchCommentsByReview = (review_id) => {
+  return gamesAPI.get(`/reviews/${review_id}/comments`).then((response) => {
+    return response.data.comments;
+  });
+};

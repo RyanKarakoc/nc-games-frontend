@@ -4,10 +4,12 @@ import Header from "./components/Header";
 import ReviewList from "./components/ReviewList";
 import { useState } from "react";
 import SingleReview from "./components/SingleReview";
+import CommentsModal from "./components/CommentsModal";
 
 function App() {
   const [reviews, setReviews] = useState([]);
   const [users, setUsers] = useState([]);
+  const [comments, setComments] = useState([]);
 
   return (
     <div className="App">
@@ -20,6 +22,8 @@ function App() {
               users={users}
               reviews={reviews}
               setReview={setReviews}
+              comments={comments}
+              setComments={setComments}
             />
           }
         />
@@ -42,6 +46,8 @@ function App() {
               setReviews={setReviews}
               users={users}
               setUsers={setUsers}
+              setComments={setComments}
+              comments={comments}
             />
           }
         />
