@@ -20,6 +20,14 @@ const CommentsList = ({ comments, setComments }) => {
     setShowAll(true);
   };
 
+  if (comments.length === 0) {
+    return (
+      <p className="no-comments">
+        No comments...<br></br>Be the first to leave a comment!
+      </p>
+    );
+  }
+
   if (comments.length > commentsPerPage) {
     if (showAll) {
       return (
@@ -29,7 +37,7 @@ const CommentsList = ({ comments, setComments }) => {
               <div className="review-comment">
                 <div className="comment-bar">
                   <p id="comment-bar">{comment.author}</p>
-                  <p id="comment-bar">{comment.votes} Votes</p>
+                  <p id="comment-bar">| {comment.votes} Votes |</p>
                   <p id="comment-bar">
                     {new Date(comment.created_at).toDateString()}
                   </p>
@@ -48,7 +56,7 @@ const CommentsList = ({ comments, setComments }) => {
               <div className="review-comment">
                 <div className="comment-bar">
                   <p id="comment-bar">{comment.author}</p>
-                  <p id="comment-bar">{comment.votes} Votes</p>
+                  <p id="comment-bar">| {comment.votes} Votes |</p>
                   <p id="comment-bar">
                     {new Date(comment.created_at).toDateString()}
                   </p>
@@ -71,7 +79,7 @@ const CommentsList = ({ comments, setComments }) => {
             <div className="review-comment">
               <div className="comment-bar">
                 <p id="comment-bar">{comment.author}</p>
-                <p id="comment-bar">{comment.votes} Votes</p>
+                <p id="comment-bar">| {comment.votes} Votes |</p>
                 <p id="comment-bar">
                   {new Date(comment.created_at).toDateString()}
                 </p>

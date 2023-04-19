@@ -154,6 +154,11 @@ body {
   color: rgb(189, 189, 189);
 }
 
+.no-comments {
+  word-wrap: break-word;
+  font-size: 14px;
+}
+
 .review-comment {
   text-align: left;
   border: 1px solid white;

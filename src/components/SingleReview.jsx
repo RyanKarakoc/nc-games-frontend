@@ -19,6 +19,7 @@ const SingleReview = ({ reviews, setReview, comments, setComments }) => {
     return <p className="loading">Loading...</p>;
   }
 
+
   return reviews.map((review) => {
     return (
       <div className="review-page">

@@ -6,10 +6,6 @@ import CommentsModal from "./CommentsModal";
 const ReviewList = ({
   reviews,
   setReviews,
-  users,
-  setUsers,
-  reviewId,
-  setReviewId,
   comments,
   setComments,
 }) => {
@@ -37,16 +33,7 @@ const ReviewList = ({
             <ReviewCard
               openModel={openModel}
               setOpenModel={setOpenModel}
-              review_id={review.review_id}
-              title={review.title}
-              category={review.category}
-              designer={review.designer}
-              owner={review.owner}
-              review_body={review.review_body}
-              review_img_url={review.review_img_url}
-              created_at={review.created_at}
-              votes={review.votes}
-              comment_count={review.comment_count}
+              review={review}
               setComments={setComments}
               setIsModalLoading={setIsModalLoading}
             />

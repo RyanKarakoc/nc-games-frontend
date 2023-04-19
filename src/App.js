@@ -4,7 +4,6 @@ import Header from "./components/Header";
 import ReviewList from "./components/ReviewList";
 import { useState } from "react";
 import SingleReview from "./components/SingleReview";
-import CommentsModal from "./components/CommentsModal";
 
 function App() {
   const [reviews, setReviews] = useState([]);
