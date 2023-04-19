@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { fetchReviewsById } from "../api";
 import { useParams } from "react-router-dom";
+import CommentsList from "./CommentList";
 
-const SingleReview = ({ reviews, setReview }) => {
+const SingleReview = ({ reviews, setReview, comments, setComments }) => {
   const [isLoading, setIsLoading] = useState(true);
   const { review_id } = useParams();
 
   useEffect(() => {
+    setIsLoading(true);
     fetchReviewsById(review_id).then((data) => {
-      setIsLoading(true);
       setReview(data);
       setIsLoading(false);
     });
@@ -17,6 +18,7 @@ const SingleReview = ({ reviews, setReview }) => {
   if (isLoading) {
     return <p className="loading">Loading...</p>;
   }
+
 
   return reviews.map((review) => {
     return (
@@ -27,7 +29,7 @@ const SingleReview = ({ reviews, setReview }) => {
         <div className="review-votes-comments-count">
           <h3 className="review-votes-count">Votes: {review.votes || 0}</h3>
           <h3 className="review-comments-count">
-            Comments: {review.comments || 0}
+            Comments: {review.comment_count || 0}
           </h3>
         </div>
         <form className="comment-form">
@@ -36,7 +38,9 @@ const SingleReview = ({ reviews, setReview }) => {
             placeholder="Write a comment...(will not work until ticket 8)"
           ></textarea>
         </form>
-        <p className="review-comments">comments</p>
+        <div className="review-comments">
+          <CommentsList comments={comments} setComments={setComments} />
+        </div>
       </div>
     );
   });
