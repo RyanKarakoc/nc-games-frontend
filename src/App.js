@@ -9,6 +9,8 @@ function App() {
   const [reviews, setReviews] = useState([]);
   const [users, setUsers] = useState([]);
   const [comments, setComments] = useState([]);
+  const [openModel, setOpenModel] = useState(false);
+  const [isModalLoading, setIsModalLoading] = useState(false);
 
   return (
     <div className="App">
@@ -34,6 +36,10 @@ function App() {
               setReviews={setReviews}
               users={users}
               setUsers={setUsers}
+              openModel={openModel}
+              setOpenModel={setOpenModel}
+              isModalLoading={isModalLoading}
+              setIsModalLoading={setIsModalLoading}
             />
           }
         />
@@ -47,6 +53,10 @@ function App() {
               setUsers={setUsers}
               setComments={setComments}
               comments={comments}
+              openModel={openModel}
+              setOpenModel={setOpenModel}
+              isModalLoading={isModalLoading}
+              setIsModalLoading={setIsModalLoading}
             />
           }
         />
