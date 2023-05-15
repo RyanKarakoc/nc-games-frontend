@@ -32,7 +32,14 @@ export const patchReviewVotes = (review_id, vote) => {
   return gamesAPI
     .patch(`/reviews/${review_id}`, { inc_votes: vote })
     .then((response) => {
-      console.log(response.data);
       return response.data;
+    });
+};
+
+export const postNewComment = (review_id, newComment) => {
+  return gamesAPI
+    .post(`/reviews/${review_id}/comments`, newComment)
+    .then((response) => {
+      return response.data.msg;
     });
 };
