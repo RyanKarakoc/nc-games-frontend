@@ -10,7 +10,7 @@ const CommentsList = ({ comments, setComments }) => {
     fetchCommentsByReview(review_id).then((response) => {
       setComments(response);
     });
-  }, []);
+  }, [setComments, review_id]);
 
   const commentsPerPage = 4;
   const commentsAllowedOnPage = comments.slice(0, 3);
@@ -28,6 +28,8 @@ const CommentsList = ({ comments, setComments }) => {
     );
   }
 
+  console.log("comment list");
+
   if (comments.length > commentsPerPage) {
     if (showAll) {
       return (
@@ -35,7 +37,7 @@ const CommentsList = ({ comments, setComments }) => {
           {comments.map((comment) => {
             return (
               <div className="review-comment">
-                <div className="comment-bar">
+                <div className="comment-bar-info">
                   <p id="comment-bar">{comment.author}</p>
                   <p id="comment-bar">| {comment.votes} Votes |</p>
                   <p id="comment-bar">
