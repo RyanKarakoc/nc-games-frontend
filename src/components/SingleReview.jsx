@@ -1,29 +1,43 @@
 import { useEffect, useState } from "react";
-import { fetchReviewsById } from "../api";
+import {
+  fetchCommentsByReview,
+  fetchReviewsById,
+  postNewComment,
+} from "../api";
 import { useParams } from "react-router-dom";
 import CommentsList from "./CommentList";
 import Votes from "./Votes";
 import VoteErrorModal from "./VoteErrorModal";
+import CommentsTextArea from "./CommentsTextArea";
 
-const SingleReview = ({ reviews, setReview, comments, setComments }) => {
+const SingleReview = ({
+  reviews,
+  setReview,
+  comments,
+  setComments,
+  signedInAs,
+}) => {
   const [openVotesModel, setOpenVotesModel] = useState(false);
   const [isVotesModalLoading, setIsVotesModalLoading] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [addedVote, setAddedVote] = useState(0);
+  const [commentBody, setCommentBody] = useState("");
   const [error, setError] = useState("");
   const { review_id } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
-    fetchReviewsById(review_id).then((data) => {
-      setReview(data);
+    fetchReviewsById(review_id).then((response) => {
+      setReview(response);
       setIsLoading(false);
     });
-  }, [review_id]);
+  }, [review_id, setReview]);
 
   if (isLoading) {
     return <p className="loading">Loading...</p>;
   }
+
+  console.log("review");
 
   return reviews.map((review) => {
     return (
@@ -50,12 +64,15 @@ const SingleReview = ({ reviews, setReview, comments, setComments }) => {
             Comments: {review.comment_count || 0}
           </h3>
         </div>
-        <form className="comment-form">
-          <textarea
-            className="comment-area"
-            placeholder="Write a comment...(will not work until ticket 8)"
-          ></textarea>
-        </form>
+        {
+          <CommentsTextArea
+            signedInAs={signedInAs}
+            commentBody={commentBody}
+            setCommentBody={setCommentBody}
+            setComments={setComments}
+            review_id={review_id}
+          />
+        }
         <div className="review-comments">
           <CommentsList comments={comments} setComments={setComments} />
         </div>

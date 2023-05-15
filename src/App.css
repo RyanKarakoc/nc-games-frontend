@@ -9,8 +9,32 @@ body {
 }
 
 .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   color: white;
+  margin-bottom: 40px;
+}
+
+.NC-games {
+  color: white;
+}
+
+.sign-in {
+  position: flex;
+}
+.sign-in-area {
+  border: 2px solid black;
+  height: 130px;
+  width: 130px;
+  margin-left: 100px;
+  background-color: white;
+}
+
+.avatar {
+  height: 100%;
+  width: 100%;
 }
 
 .review-list {
@@ -139,6 +163,15 @@ body {
   color: white;
 }
 
+.comment-submit-bar {
+  display: flex;
+  justify-content: end;
+  border: 2px solid white;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .review-comments {
   text-align: center;
   border: 2px solid rgb(255, 255, 255);
@@ -152,6 +185,7 @@ body {
   background-color: rgb(30, 30, 43);
   width: 90%;
   color: rgb(189, 189, 189);
+  overflow-y: hidden;
 }
 
 .no-comments {

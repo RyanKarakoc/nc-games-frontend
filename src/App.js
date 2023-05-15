@@ -11,15 +11,22 @@ function App() {
   const [comments, setComments] = useState([]);
   const [openModel, setOpenModel] = useState(false);
   const [isModalLoading, setIsModalLoading] = useState(false);
+  const [signedInAs, setSignedInAs] = useState({});
 
   return (
     <div className="App">
-      <Header />
+      <Header
+        users={users}
+        setUsers={setUsers}
+        signedInAs={signedInAs}
+        setSignedInAs={setSignedInAs}
+      />
       <Routes>
         <Route
           path="/review/:review_id"
           element={
             <SingleReview
+              signedInAs={signedInAs}
               users={users}
               reviews={reviews}
               setReview={setReviews}
